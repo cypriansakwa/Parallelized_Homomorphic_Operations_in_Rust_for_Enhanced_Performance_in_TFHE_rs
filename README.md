@@ -54,11 +54,6 @@ cargo run build
  >```
 >  cargo run --release --single-threaded
 - By default, the code runs in parallel mode. You can switch to single-threaded mode by modifying the parallel_homomorphic_operations function call in the main function:
->```
->  fn main() -> Result<(), Box<dyn std::error::Error>> {
->  parallel_homomorphic_operations(ExecutionMode::Parallel)?; // Change to ExecutionMode::SingleThreaded for single-threaded execution
-> Ok(())
-> }
 
  ## Contributing
   - If you intend to contribute to this project, fork the repository and make a pull request.
