@@ -31,21 +31,17 @@
 - **Rust:** Ensure you have the latest stable version of Rust installed.
 - **TFHE-rs:** This project uses the TFHE-rs library for fully homomorphic encryption. It is included as a dependency in the Cargo.toml file.
 - **Rayon:** The Rayon library is used for parallel processing, also included as a dependency.
-``` 
-#To include library run: paste the line below in 'Cargo.toml' 
-#For x86_64 machine running a Unix-like OS:
+- First, add TFHE-rs as a dependency in your Cargo.toml.
+  - For x86_64 machine running a Unix-like OS:
+>```
+>tfhe = { version = "0.7.2", features = [ "boolean", "shortint", "integer", "x86_64-unix" ] }
+  - For ARM machine running a Unix-like OS:
+>```
+> tfhe = { version = "0.7.2", features = [ "boolean", "shortint", "integer", "aarch64-unix" ] }
+  - For x86_64 machines with the rdseed instruction running Windows:
+>```
+> tfhe = { version = "*", features = ["boolean", "shortint", "integer", "x86_64"] }
 
-tfhe = { version = "0.7.2", features = [ "boolean", "shortint", "integer", "x86_64-unix" ] }
-#For ARM machine running a Unix-like OS:
-
-tfhe = { version = "0.7.2", features = [ "boolean", "shortint", "integer", "aarch64-unix" ] }
-#For x86_64 machines with the rdseed instruction running Windows:
-
-tfhe = { version = "*", features = ["boolean", "shortint", "integer", "x86_64"] }
-
-#ensure to build cargo after adding the tfhe library
-cargo run build
-```
 ## Usage 
 - To run the program and perform homomorphic operations in parallel mode, use
  >```
